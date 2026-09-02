@@ -1,0 +1,22 @@
+{
+  "name": "als-cron-dashboard",
+  "private": true,
+  "version": "1.2.0",
+  "description": "Dashboard ALS-2 — fuente de verdad Neon + sync monorepo + Netlify functions",
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-data.mjs",
+    "sync:local": "SKIP_NEON=1 node scripts/sync-data.mjs",
+    "push:neon": "node scripts/sync-data.mjs",
+    "watch": "node scripts/watch-sync.mjs",
+    "start": "node scripts/server.mjs",
+    "dev": "node scripts/sync-data.mjs && node scripts/server.mjs",
+    "dev:watch": "node scripts/watch-sync.mjs & node scripts/server.mjs",
+    "build": "node -e \"const fs=require('fs');const p='public/data/snapshot.json';if(!fs.existsSync(p))process.exit(1);console.log('snapshot ok',fs.statSync(p).size);console.log('set DATABASE_URL for Neon API')\"",
+    "publish": "node scripts/publish-github.mjs",
+    "publish:pages": "node scripts/publish-github.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0"
+  }
+}

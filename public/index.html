@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ALS Cron Dashboard · ux-projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          ALS Cron
+          <span>Control · memoria · cases · Paper</span>
+        </div>
+        <div>
+          <span id="modeBadge" class="badge-mode static">…</span>
+        </div>
+        <nav class="nav">
+          <button type="button" data-view="overview" class="active">Overview</button>
+          <button type="button" data-view="projects">Ejecuciones</button>
+          <button type="button" data-view="case">Case / docs</button>
+          <button type="button" data-view="directives">Directivas</button>
+          <button type="button" data-view="antipatterns">Anti-patrones</button>
+          <button type="button" data-view="briefing">Briefing N+1</button>
+          <button type="button" data-view="memory">memory.md</button>
+          <button type="button" data-view="registry">Registry</button>
+          <button type="button" data-view="cron">CRON.md</button>
+          <button type="button" data-view="learning">LEARNING.md</button>
+        </nav>
+        <div class="sidebar-foot">
+          Sync: <span id="genAt">—</span><br />
+          <span id="metaLine"></span>
+        </div>
+      </aside>
+      <main class="main" id="main">
+        <div id="sourceBanner" class="source-banner hidden" role="status"></div>
+        <p class="empty">Cargando desde Neon…</p>
+      </main>
+    </div>
+    <div id="toast" class="toast hidden"></div>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
